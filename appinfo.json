@@ -1,0 +1,12 @@
+{
+  "id": "com.embrace.webos.test",
+  "version": "1.0.0",
+  "vendor": "Embrace Mobile",
+  "type": "web",
+  "main": "index.html",
+  "title": "Embrace WebOS Test App",
+  "icon": "icon.png",
+  "category": "TV",
+  "permissions": [],
+  "extra": {}
+}
