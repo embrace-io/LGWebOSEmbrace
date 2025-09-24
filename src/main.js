@@ -16,25 +16,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Check what's available in window object
   setTimeout(() => {
+    logToScreen('🔍 Checking window.EmbraceWebSdk: ' + (typeof window.EmbraceWebSdk));
     logToScreen('🔍 Checking window.Embrace: ' + (typeof window.Embrace));
     logToScreen('🔍 Available globals: ' + Object.keys(window).filter(k => k.toLowerCase().includes('embrace')).join(', '));
   }, 1000);
 
 (function () {
 
-  if (window.Embrace) {
+  if (window.EmbraceWebSdk) {
     try {
-      window.Embrace.initSDK({
+      window.EmbraceWebSdk.initSDK({
         appId: 'ixvsw'
       });
       logToScreen('✅ Embrace SDK initialized successfully');
-      console.log('Embrace SDK initialized for WebOS', window.Embrace);
+      console.log('Embrace SDK initialized for WebOS', window.EmbraceWebSdk);
     } catch (error) {
       logToScreen('❌ Embrace SDK init failed: ' + error.message);
       console.error('Embrace init error:', error);
     }
   } else {
-    logToScreen('❌ Embrace SDK not loaded - window.Embrace is ' + (typeof window.Embrace));
+    logToScreen('❌ Embrace SDK not loaded - window.EmbraceWebSdk is ' + (typeof window.EmbraceWebSdk));
     console.warn('Embrace SDK not loaded');
   }
   const statusEl = document.getElementById('status');
@@ -48,9 +49,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const key = e.key || e.keyCode;
 
     // Log key press event to Embrace
-    if (window.Embrace) {
+    if (window.EmbraceWebSdk) {
       try {
-        window.Embrace.logBreadcrumb('Key pressed: ' + key);
+        window.EmbraceWebSdk.logBreadcrumb('Key pressed: ' + key);
         logToScreen('📝 Logged breadcrumb: ' + key);
       } catch (error) {
         logToScreen('❌ Breadcrumb failed: ' + error.message);
@@ -70,9 +71,9 @@ document.addEventListener('DOMContentLoaded', function() {
       case 13:
         messageEl.textContent = 'Enter/OK';
         // Test error logging on Enter key
-        if (window.Embrace) {
+        if (window.EmbraceWebSdk) {
           try {
-            window.Embrace.logError('Test error: User pressed Enter', 'test-error');
+            window.EmbraceWebSdk.logError('Test error: User pressed Enter', 'test-error');
             logToScreen('🚨 Logged error to Embrace');
           } catch (error) {
             logToScreen('❌ Error logging failed: ' + error.message);
@@ -93,9 +94,9 @@ document.addEventListener('DOMContentLoaded', function() {
       case 461: // Home key on LG remote
         messageEl.textContent = 'Ending session...';
         logToScreen('🔄 Ending session & sending data to Embrace');
-        if (window.Embrace) {
+        if (window.EmbraceWebSdk) {
           try {
-            window.Embrace.endSession();
+            window.EmbraceWebSdk.endSession();
             logToScreen('✅ Session ended, data sent!');
           } catch (error) {
             logToScreen('❌ End session failed: ' + error.message);
@@ -119,9 +120,9 @@ document.addEventListener('DOMContentLoaded', function() {
     setStatus('Ready');
 
     // Log app startup to Embrace
-    if (window.Embrace) {
-      window.Embrace.logBreadcrumb('WebOS app started successfully');
-      window.Embrace.logInfo('App loaded in WebOS environment');
+    if (window.EmbraceWebSdk) {
+      window.EmbraceWebSdk.logBreadcrumb('WebOS app started successfully');
+      window.EmbraceWebSdk.logInfo('App loaded in WebOS environment');
     }
   });
 })();
