@@ -2,12 +2,14 @@
   "name": "lg-webos-sample",
   "version": "1.0.0",
   "description": "Minimal LG webOS sample app",
+  "type": "module",
+  "private": true,
   "scripts": {
-    "start": "npx http-server -p 8080",
-    "package": "npx ares-package . || node -e \"console.log('Install ares-cli globally or add to PATH')\"",
+    "start": "npx http-server -p 8080 -c10",
+    "package": "npx ares-package .",
     "deploy": "bash ./scripts/deploy.sh"
   },
-  "dependencies": {
-    "@embrace-io/web-sdk": "^2.2.0"
+  "devDependencies": {
+    "@webos-tools/cli": "3.2.1"
   }
 }

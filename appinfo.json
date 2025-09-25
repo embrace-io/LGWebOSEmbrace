@@ -8,5 +8,6 @@
   "icon": "icon.png",
   "category": "TV",
   "permissions": [],
-  "extra": {}
+  "extra": {},
+  "exclude": ["node_modules", ".git", "*.ipk", ".DS_Store", "package*.json", "README.md"]
 }
