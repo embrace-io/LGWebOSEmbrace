@@ -1,26 +1,27 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Embrace WebOS Test App</title>
-  <link rel="stylesheet" href="css/style.css" />
-  <!-- Embrace SDK from CDN -->
-  <script src="https://unpkg.com/@embrace-io/web-sdk@latest/build/iife/bundle.js"></script>
-</head>
-<body>
-  <div id="app">
-    <header>
-      <h1>Embrace WebOS Test App</h1>
-    </header>
-    <main>
-      <p id="message">Test Embrace: Arrow keys=breadcrumbs, Enter=error, Back=exception, Home=end session</p>
-      <div id="status">Status: Ready</div>
-    </main>
-    <footer>
-      <small>Built for webOS</small>
-    </footer>
-  </div>
-  <script src="src/main.js"></script>
-</body>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Embrace WebOS Test App</title>
+        <link rel="stylesheet" href="css/style.css" />
+        <script type="module" src="src/main.mjs"></script>
+    </head>
+    <body>
+        <div id="app">
+            <header>
+                <h1>Embrace WebOS Test App</h1>
+            </header>
+            <main>
+                <p id="message">
+                    Test Embrace: Arrow keys=breadcrumbs, Enter=error,
+                    Back=exception, Home=end session
+                </p>
+                <div id="status"></div>
+            </main>
+            <footer>
+                <small>Built for webOS</small>
+            </footer>
+        </div>
+    </body>
 </html>
